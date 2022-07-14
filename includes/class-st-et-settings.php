@@ -177,7 +177,7 @@ class ST_ET_Settings {
             foreach( $posts as $post ){
 
                 if( isset( $_POST['skip_imported'] ) && 1 == $_POST['skip_imported'] ){
-                    $query = new WP_Query( array( 'post_type' => 'wpm-testimonial', 'meta_key' => 'old_et_id', 'meta_value' => absint( $post->ID  ) ) );
+                    $query = new WP_Query( array( 'post_type' => 'wpm-testimonial', 'meta_key' => 'wpmtst_old_et_id', 'meta_value' => absint( $post->ID  ) ) );
 
                     //check for already imported
                     if( $query->found_posts > 0 ){
@@ -206,34 +206,23 @@ class ST_ET_Settings {
                 // Insert testimonial metas into the post_meta database table
                 if( isset( $post_meta['_thumbnail_id'][0] ) ){
                     add_post_meta( $new_post_id, '_thumbnail_id', $post_meta['_thumbnail_id'][0] );
-                    unset( $post_meta['_thumbnail_id'] );
                 }
                 if( isset( $post_meta['_ikcf_client'][0] ) ){
                    add_post_meta( $new_post_id, 'client_name', $post_meta['_ikcf_client'][0] );
-                    unset( $post_meta['_ikcf_client'] );
                 }
                 if( isset( $post_meta['_ikcf_email'][0] ) ){
                     add_post_meta( $new_post_id, 'email', $post_meta['_ikcf_email'][0] );
-                    unset( $post_meta['_ikcf_email'] );
                 }
                 if( isset( $post_meta['_ikcf_rating'][0] ) ){
                     add_post_meta( $new_post_id, 'star_rating', $post_meta['_ikcf_rating'][0] );
-                    unset( $post_meta['_ikcf_rating'] );
                 }
-
-                foreach( $post_meta as $key => $value ){
-
-                    // Import custom ET values
-                    add_post_meta( $new_post_id, str_replace( '_ikcf', 'custom', $key ), $value[0] );
-                }
-
 
                 add_post_meta( $new_post_id, 'nofollow', 'default' );
                 add_post_meta( $new_post_id, 'noopener', 'default' );
                 add_post_meta( $new_post_id, 'noreferrer', 'default' );
 
                 // Set the old Easy Testimonials id so we can skip the import
-                add_post_meta( $new_post_id, 'old_et_id', $post->ID );
+                add_post_meta( $new_post_id, 'wpmtst_old_et_id', $post->ID );
 
                 $terms = get_the_terms( $post->ID , 'easy-testimonial-category' );
                 if( !empty( $terms ) ){

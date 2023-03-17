@@ -39,7 +39,7 @@ class ST_ET_Settings {
 		printf( '<a href="%s" class="nav-tab %s">%s</a>',
 			esc_url( add_query_arg( 'tab', self::TAB_NAME, $url ) ),
 			esc_attr( $active_tab == self::TAB_NAME ? 'nav-tab-active' : '' ),
-			esc_html_x( 'Migrate', 'adjective', 'modula-st-et-migrator' )
+			esc_html_x( 'Migrate', 'adjective', 'et-st-migrator' )
 		);
 	}
 
@@ -65,14 +65,14 @@ class ST_ET_Settings {
 	public function settings_page() {
 		//settings_fields( self::GROUP_NAME );
     ?>
-        <h2><?php esc_html_e( 'Migrate from Easy Testimonials', 'modula-st-et-migrator' ); ?></h2>
+        <h2><?php esc_html_e( 'Migrate from Easy Testimonials', 'et-st-migrator' ); ?></h2>
         
         <table class="form-table" cellpadding="0" cellspacing="0">
         
             <tr valign="top">
                 <td>
                         <?php printf(
-                            wp_kses_post( __( '%s %s Easy Testimonials posts have been found. %s', 'modula-st-et-migrator' ) ),
+                            wp_kses_post( __( '%s %s Easy Testimonials posts have been found. %s', 'et-st-migrator' ) ),
                             '<span class="wpmtst_import_notice wpmtst-alert">',
                             absint( $this->easy_testimonials_count()->publish ),
                             '</span>',
@@ -91,13 +91,13 @@ class ST_ET_Settings {
                     <fieldset>
                     <label>
                         <input type="checkbox" id="wpmtst-migrator-delete-imported" name="wpmtst-migrator-delete-imported">
-                        <?php esc_html_e( 'Delete the imported Easy Testimonials', 'modula-st-et-migrator' ); ?>
+                        <?php esc_html_e( 'Delete the imported Easy Testimonials', 'et-st-migrator' ); ?>
                     </label>
                     </fieldset>
                     <fieldset>
                     <label>
                         <input type="checkbox" id="wpmtst-migrator-skip-imported" name="wpmtst-migrator-skip-imported">
-                        <?php esc_html_e( 'Skip already imported Easy Testimonials', 'modula-st-et-migrator' ); ?>
+                        <?php esc_html_e( 'Skip already imported Easy Testimonials', 'et-st-migrator' ); ?>
                     </label>
                     </fieldset>
                 </td>
@@ -105,7 +105,7 @@ class ST_ET_Settings {
             <tr valign="top">
                 <td>
                     <span id="wpmtst-import-response" class="wpmtst-alert" style="display:none;"></span>
-                    <a class="button button-primary" id="wpmtst_import_testimonials"><?php esc_html_e( 'Import Testimonials', 'modula-st-et-migrator' ); ?></a>
+                    <a class="button button-primary" id="wpmtst_import_testimonials"><?php esc_html_e( 'Import Testimonials', 'et-st-migrator' ); ?></a>
                 </td>
             </tr>
         </table>
@@ -135,8 +135,8 @@ class ST_ET_Settings {
 	 */
 	public function get_submenu() {
 		return array(
-			'page_title' => apply_filters( 'wpmtst_et_migrator_page_title', esc_html__( 'Migrate', 'modula-st-et-migrator' ) ),
-	        'menu_title' => apply_filters( 'wpmtst_et_migrator_menu_title', esc_html__( 'Migrate', 'modula-st-et-migrator' ) ),
+			'page_title' => apply_filters( 'wpmtst_et_migrator_page_title', esc_html__( 'Migrate', 'et-st-migrator' ) ),
+	        'menu_title' => apply_filters( 'wpmtst_et_migrator_menu_title', esc_html__( 'Migrate', 'et-st-migrator' ) ),
 		    'capability' => 'strong_testimonials_options',
 	        'menu_slug'  => 'edit.php?post_type=wpm-testimonial&page=testimonial-settings&tab=migrate',
 			'function'   => '',
@@ -159,7 +159,7 @@ class ST_ET_Settings {
 		}
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'wpmtst_migrate_from_easy_testimonials' ) ) {
-			wp_send_json_error(__( 'Import failed! Nonce validation failed.', 'modula-st-et-migrator' ) );
+			wp_send_json_error(__( 'Import failed! Nonce validation failed.', 'et-st-migrator' ) );
 			die();
 		}
 
@@ -259,11 +259,11 @@ class ST_ET_Settings {
                 }
             }
 
-            wp_send_json_success( sprintf( __( 'Import finished! %s testimonials were imported and %s testimonials were skipped.', 'modula-st-et-migrator' ), absint( $imported ), absint( $skipped ) ) );
+            wp_send_json_success( sprintf( __( 'Import finished! %s testimonials were imported and %s testimonials were skipped.', 'et-st-migrator' ), absint( $imported ), absint( $skipped ) ) );
             wp_die();
         }
 
-        wp_send_json_error( __( 'Import failed! Please try again.', 'modula-st-et-migrator' ) );
+        wp_send_json_error( __( 'Import failed! Please try again.', 'et-st-migrator' ) );
 		wp_die();
     }
 

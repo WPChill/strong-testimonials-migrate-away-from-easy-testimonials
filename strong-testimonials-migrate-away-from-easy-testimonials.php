@@ -30,7 +30,7 @@ add_action( 'plugins_loaded', 'run_st_et_migrator', 15 );
  */
 function set_locale() {
 
-    load_plugin_textdomain( 'modula-st-et-migrator', false, dirname( plugin_basename( WPMTST_ET_MIGRATOR_FILE ) ) . '/languages/' );
+    load_plugin_textdomain( 'et-st-migrator', false, dirname( plugin_basename( WPMTST_ET_MIGRATOR_FILE ) ) . '/languages/' );
 }
 
 /**

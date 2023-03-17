@@ -46,7 +46,7 @@ class ST_ET_Migrator {
 		}
 		?>
 		<div data-dismissible="wpmtst-st-et-missing-notice" id="wpmtst-st-et-missing-notice" class="notice notice-warning is-dismissible" style="margin-top:30px;">
-			<p><?php esc_html_e( 'Strong Testimonials - Migrate Away from Easy Testimonials addon requires Strong Testimonials plugin to be installed and activated.', 'modula-st-et-migrator' );?></p>
+			<p><?php esc_html_e( 'Strong Testimonials - Migrate Away from Easy Testimonials addon requires Strong Testimonials plugin to be installed and activated.', 'et-st-migrator' );?></p>
 		</div>
 		<?php
 	}

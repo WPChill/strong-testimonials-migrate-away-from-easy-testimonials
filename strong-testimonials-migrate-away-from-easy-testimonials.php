@@ -5,7 +5,7 @@
  * Description: Submodule that helps migrate testimonials from Easy Testimonials to Strong Testimonials
  * Author: WPChill
  * Author URI: https://www.wpchill.com/
- * Version: 1.0.0
+ * Version: 1.0.1
  */
 
 // Exit if accessed directly.
@@ -13,14 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'WPMTST_ET_MIGRATOR_VERSION', '1.0.0' );
+define( 'WPMTST_ET_MIGRATOR_VERSION', '1.0.1' );
 define( 'WPMTST_ET_MIGRATOR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPMTST_ET_MIGRATOR_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPMTST_ET_MIGRATOR_FILE', __FILE__ );
 
 
-add_action( 'plugins_loaded', 'set_locale', 15 );
-add_action( 'plugins_loaded', 'run_st_et_migrator', 15 );
+add_action( 'plugins_loaded', 'wpmtst_et_set_locale', 15 );
+add_action( 'plugins_loaded', 'run_wpmtst_et_migrator', 15 );
 
 /**
  * Set localization for the plugin
@@ -28,7 +28,7 @@ add_action( 'plugins_loaded', 'run_st_et_migrator', 15 );
  * @return void
  * @since 1.0.0
  */
-function set_locale() {
+function wpmtst_et_set_locale() {
 
     load_plugin_textdomain( 'et-st-migrator', false, dirname( plugin_basename( WPMTST_ET_MIGRATOR_FILE ) ) . '/languages/' );
 }
@@ -39,7 +39,7 @@ function set_locale() {
  * @return void
  * @since 1.0.0
  */
-function run_st_et_migrator(){
+function run_wpmtst_et_migrator(){
     require_once WPMTST_ET_MIGRATOR_PATH . 'includes/class-st-et-migrator.php';
     $load = new ST_ET_Migrator();
 }

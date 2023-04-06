@@ -74,7 +74,7 @@ class ST_ET_Settings {
                         <?php printf(
                             wp_kses_post( __( '%s %s Easy Testimonials posts have been found. %s', 'et-st-migrator' ) ),
                             '<span class="wpmtst_import_notice wpmtst-alert">',
-                            absint( $this->easy_testimonials_count()->publish ),
+                            absint( $this->easy_testimonials_count() ),
                             '</span>',
                         );
                         
@@ -296,7 +296,10 @@ class ST_ET_Settings {
      * @since 1.0.0
 	 */
     public function easy_testimonials_count(){
-        return wp_count_posts('testimonial');
+        if( post_type_exists( 'testimonial' ) ){
+            return wp_count_posts( 'testimonial' )->publish;
+        }
+        return 0;
     }
 
 }

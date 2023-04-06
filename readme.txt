@@ -4,7 +4,7 @@ Tags: Easy Testimonials testimonial migrator, migrate to Strong Testimonials, te
 Requires at least: 5.2
 Tested up to: 6.2
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.0.0
 License: GNU General Public License v3.0 or later
 
 Migrate away from Easy Testimonials is the official migrator from Easy Testimonials to Strong Testimonials
@@ -25,8 +25,5 @@ We’ll import the following customization from Easy Testimonials Gallery:
 * Testimonial star rating
 
 == Changelog ==
-
-= 1.0.1 = TBD
-* Changed: Functions prefix to avoid conflicts. ( [#1](https://github.com/WPChill/strong-testimonials-migrate-away-from-easy-testimonials/issues/1) )
 
 See <a href="https://github.com/WPChill/strong-testimonials-migrate-away-from-easy-testimonials/blob/main/changelog.txt" target="_blank">changelog</a>

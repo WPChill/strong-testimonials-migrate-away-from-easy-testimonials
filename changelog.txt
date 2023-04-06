@@ -1,5 +1,2 @@
-= 1.0.1 = TBD
-* Changed: Functions prefix to avoid conflicts. ( [#1](https://github.com/WPChill/strong-testimonials-migrate-away-from-easy-testimonials/issues/1) )
-
 = 1.0.0 =
 * This is the launch version. No changes yet.

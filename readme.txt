@@ -2,7 +2,7 @@
 Contributors: wpchill
 Tags: Easy Testimonials testimonial migrator, migrate to Strong Testimonials, testimonial migrator, migrate from Easy Testimonials
 Requires at least: 5.2
-Tested up to: 6.2
+Tested up to: 6.6
 Requires PHP: 5.6
 Stable tag: 1.0.0
 License: GNU General Public License v3.0 or later

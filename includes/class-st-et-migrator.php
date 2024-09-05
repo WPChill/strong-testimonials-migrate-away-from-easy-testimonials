@@ -15,29 +15,28 @@ class ST_ET_Migrator {
 
 		if ( class_exists( 'Strong_Testimonials' ) ) {
 
-            if ( is_admin() ) {
+			if ( is_admin() ) {
 
-                //require migrator admin interface and settings
-                require_once WPMTST_ET_MIGRATOR_PATH . 'includes/class-st-et-settings.php';
-            }
+				//require migrator admin interface and settings
+				require_once WPMTST_ET_MIGRATOR_PATH . 'includes/class-st-et-settings.php';
+			}
+		} else {
+			if ( is_admin() ) {
 
-        } else {
-            if ( is_admin() ) {
+				add_action( 'wp_ajax_wpmtst-dismiss-plugin-missing-notice', array( $this, 'ajax' ) );
+				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
+				add_action( 'admin_print_footer_scripts', array( $this, 'ajax_script' ) );
 
-                add_action( 'wp_ajax_wpmtst-dismiss-plugin-missing-notice', array( $this, 'ajax' ) );
-                add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
-                add_action( 'admin_print_footer_scripts', array( $this, 'ajax_script' ) );
-
-                //show Strong Testimonials plugin required notice
-                add_action( 'admin_notices', array( $this, 'wpmtst_plugin_missing_notice' ), 8 );
-            }
-        }
+				//show Strong Testimonials plugin required notice
+				add_action( 'admin_notices', array( $this, 'wpmtst_plugin_missing_notice' ), 8 );
+			}
+		}
 	}
 
 
 	/**
 	 * BETA testers notice
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 	public function wpmtst_plugin_missing_notice() {
@@ -46,13 +45,13 @@ class ST_ET_Migrator {
 		}
 		?>
 		<div data-dismissible="wpmtst-st-et-missing-notice" id="wpmtst-st-et-missing-notice" class="notice notice-warning is-dismissible" style="margin-top:30px;">
-			<p><?php esc_html_e( 'Strong Testimonials - Migrate Away from Easy Testimonials addon requires Strong Testimonials plugin to be installed and activated.', 'et-st-migrator' );?></p>
+			<p><?php esc_html_e( 'Strong Testimonials - Migrate Away from Easy Testimonials addon requires Strong Testimonials plugin to be installed and activated.', 'et-st-migrator' ); ?></p>
 		</div>
 		<?php
 	}
 	/**
 	 * AJAX functions
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 	public function ajax() {
@@ -60,12 +59,11 @@ class ST_ET_Migrator {
 		check_ajax_referer( 'wpmtst-st-et-missing-notice', 'security' );
 		update_option( 'wpmtst_plugin_missing_notice_hide', true );
 		wp_die( 'ok' );
-
 	}
 
 	/**
 	 * Enqueue scripts
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 	public function enqueue() {
@@ -74,7 +72,7 @@ class ST_ET_Migrator {
 
 	/**
 	 * AJAX script
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 	public function ajax_script() {
@@ -102,5 +100,4 @@ class ST_ET_Migrator {
 
 		<?php
 	}
-
 }

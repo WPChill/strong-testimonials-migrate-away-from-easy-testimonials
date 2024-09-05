@@ -10,7 +10,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 define( 'WPMTST_ET_MIGRATOR_VERSION', '1.0.0' );
@@ -30,7 +30,7 @@ add_action( 'plugins_loaded', 'run_wpmtst_migrate_away_easytestimonials', 15 );
  */
 function wpmtst_migrate_away_easytestimonials_set_locale() {
 
-    load_plugin_textdomain( 'et-st-migrator', false, dirname( plugin_basename( WPMTST_ET_MIGRATOR_FILE ) ) . '/languages/' );
+	load_plugin_textdomain( 'et-st-migrator', false, dirname( plugin_basename( WPMTST_ET_MIGRATOR_FILE ) ) . '/languages/' );
 }
 
 /**
@@ -39,8 +39,7 @@ function wpmtst_migrate_away_easytestimonials_set_locale() {
  * @return void
  * @since 1.0.0
  */
-function run_wpmtst_migrate_away_easytestimonials(){
-    require_once WPMTST_ET_MIGRATOR_PATH . 'includes/class-st-et-migrator.php';
-    $load = new ST_ET_Migrator();
+function run_wpmtst_migrate_away_easytestimonials() {
+	require_once WPMTST_ET_MIGRATOR_PATH . 'includes/class-st-et-migrator.php';
+	$load = new ST_ET_Migrator();
 }
-

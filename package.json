@@ -2,7 +2,7 @@
   "name": "strong-testimonials-migrate-from-easy-testimonials",
   "author": "WPChill",
   "license": "GPL v3",
-  "version": "1.0.0",
+  "version": "1.0.1",
 	"scripts": {
 		"plugin-zip": "npm run clean && npm run copy && npm run css && npm run bundle && npm run clean",
 		"clean": "rimraf build",

@@ -4,7 +4,7 @@ Tags: Easy Testimonials testimonial migrator, migrate to Strong Testimonials, te
 Requires at least: 5.2
 Tested up to: 6.6
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GNU General Public License v3.0 or later
 
 Migrate away from Easy Testimonials is the official migrator from Easy Testimonials to Strong Testimonials

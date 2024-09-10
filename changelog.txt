@@ -1,5 +1,5 @@
 = 1.0.1 - 10.09.2024 =
-* Changed: Applied WordPress Coding Standards
+* Changed: Applied WordPress Coding Standards.
 
 = 1.0.0 =
 * This is the launch version. No changes yet.

@@ -12,6 +12,9 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+      - name: Install Subversion
+        run: sudo apt-get update && sudo apt-get install -y subversion
+        
       - name: Checkout code
         uses: actions/checkout@v3
         with:
@@ -64,7 +67,7 @@ jobs:
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SLUG: strong-testimonials
+          SLUG: strong-testimonials-from-easy-testimonials
           VERSION: ${{ steps.package-version.outputs.current-version }}
 
       - name: Get changelog

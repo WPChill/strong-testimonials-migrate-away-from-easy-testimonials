@@ -6,6 +6,7 @@
  * Author: WPChill
  * Author URI: https://www.wpchill.com/
  * Version: 1.0.1
+ * License: GNU General Public License v3.0 or later
  */
 
 // Exit if accessed directly.
